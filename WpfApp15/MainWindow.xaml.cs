@@ -27,7 +27,7 @@ namespace WpfApp15
 
         public event PropertyChangedEventHandler PropertyChanged;
 
-        private ObservableCollection<Customer> customers;
+        private ObservableCollection<Customer> customers = new ObservableCollection<Customer>();
 
         public ObservableCollection<Customer> Customers
         {
@@ -54,6 +54,7 @@ namespace WpfApp15
         public MainWindow()
         {
             InitializeComponent();
+            this.DataContext = this;
         }
         protected void OnPropertyChanged([CallerMemberName] string name = null)
         {
@@ -65,7 +66,7 @@ namespace WpfApp15
         }
         private void NotifyButton_Click(object sender, RoutedEventArgs e)
         {
-
+            store.SendAllNotifications();
         }
 
         private void AddButton_Click(object sender, RoutedEventArgs e)
