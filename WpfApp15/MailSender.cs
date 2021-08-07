@@ -5,33 +5,28 @@ using System.Net;
 using System.Net.Mail;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
 
 namespace WpfApp15
 {
     class MailSender
     {
-        public void SendMail(string server,string name)
+        public void SendMail(string mails,string name)
         {
-            string to = $"{server}";
-            string from = "testm3212@gmail.com";
-            string subject = "New notification!!";
-            string body = $@"{name} is in your wish list";
-            MailMessage message = new MailMessage(from, to, subject, body);
-            SmtpClient client = new SmtpClient("smtp.gmail.com", 587);
-            client.Timeout = 100;
-            // Credentials are necessary if the server requires the client 
-            // to authenticate before it will send e-mail on the client's behalf.
-            client.Credentials = CredentialCache.DefaultNetworkCredentials;
+            MailMessage mail = new MailMessage();
+            SmtpClient smtpClient = new SmtpClient("smtp.google.com");
 
-            try
-            {
-                client.Send(message);
-            }
-            catch (Exception ex)
-            {
-                Console.WriteLine("Exception caught in CreateTimeoutTestMessage(): {0}",
-                      ex.ToString());
-            }
+            mail.From = new MailAddress("testm3212@gmail.com");
+            mail.To.Add(mails);
+            mail.Subject = "About your order";
+            mail.Body = $"The {name} named product was sent to you successfully! Thanks for shopping!";
+
+            smtpClient.Port = 587;
+            smtpClient.Credentials = new System.Net.NetworkCredential("testm3212@gmail.com", "test121416");
+
+            smtpClient.Send(mail);
+
+            MessageBox.Show("Your Message was sent to you", "Mail Customer",MessageBoxButton.OK, MessageBoxImage.Information);
         }
     }
 }
