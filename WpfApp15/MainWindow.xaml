@@ -6,10 +6,19 @@
         xmlns:local="clr-namespace:WpfApp15"
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="900">
-    <Grid>
+    <Window.Resources>
+        <LinearGradientBrush x:Key="SpecialColor" StartPoint="0,0" EndPoint="1,1">
+
+            <GradientStop Color="Yellow" Offset="0.0" ></GradientStop>
+            <GradientStop Color="DeepPink" Offset="0.25" ></GradientStop>
+            <GradientStop Color="Red" Offset="1.0" ></GradientStop>
+
+        </LinearGradientBrush>
+    </Window.Resources>
+    <Grid Background="{StaticResource SpecialColor}">
         <WrapPanel>
 
-            <StackPanel Width="400" Height="450">
+            <StackPanel Width="500" Height="450">
                 <TextBlock Margin="5" FontSize="20">Product Name</TextBlock>
                 <TextBox Margin="5" FontSize="20" Text="{Binding NameBox,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}"></TextBox>
                 <TextBlock Margin="5" FontSize="20">Email</TextBlock>
@@ -17,10 +26,14 @@
                 <Button FontSize="20" Margin="0,10" Name="AddButton" Click="AddButton_Click">Add</Button>
             </StackPanel>
             <StackPanel Width="390">
-                <ListBox ItemsSource="{Binding Customers,UpdateSourceTrigger=PropertyChanged}">
+                <ListBox Height="350" Background="Transparent" FontWeight="ExtraBlack" Foreground="White" Width="350" ItemsSource="{Binding Customers,UpdateSourceTrigger=PropertyChanged}">
+
                     <ListBox.ItemTemplate>
                         <DataTemplate>
-                            <TextBlock Text="{Binding ProductName}"></TextBlock>
+                            <WrapPanel>
+
+                                <TextBlock Text="{Binding ProductName}"></TextBlock>
+                            </WrapPanel>
                         </DataTemplate>
                     </ListBox.ItemTemplate>
                 </ListBox>
