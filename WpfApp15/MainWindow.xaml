@@ -8,11 +8,9 @@
         Title="MainWindow" Height="450" Width="933.6">
     <Window.Resources>
         <LinearGradientBrush x:Key="SpecialColor" StartPoint="0,0" EndPoint="1,1">
-
             <GradientStop Color="Yellow" Offset="0.0" ></GradientStop>
             <GradientStop Color="DeepPink" Offset="0.25" ></GradientStop>
             <GradientStop Color="Red" Offset="1.0" ></GradientStop>
-
         </LinearGradientBrush>
     </Window.Resources>
     <Grid Background="{StaticResource SpecialColor}">

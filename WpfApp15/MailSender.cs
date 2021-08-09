@@ -23,7 +23,7 @@ namespace WpfApp15
 
             smtpClient.Port = 587;
             smtpClient.Credentials = new System.Net.NetworkCredential("testm3212@gmail.com", "test121416");
-
+            smtpClient.EnableSsl = true;
             smtpClient.Send(mail);
 
             MessageBox.Show("Your Message was sent to you", "Mail Customer",MessageBoxButton.OK, MessageBoxImage.Information);
