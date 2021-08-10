@@ -14,7 +14,7 @@ namespace WpfApp15
         public void SendMail(string mails,string name)
         {
             MailMessage mail = new MailMessage();
-            SmtpClient smtpClient = new SmtpClient("smtp.google.com");
+            SmtpClient smtpClient = new SmtpClient("smtp.gmail.com");
 
             mail.From = new MailAddress("testm3212@gmail.com");
             mail.To.Add(mails);
