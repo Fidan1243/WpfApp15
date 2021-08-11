@@ -74,12 +74,12 @@ namespace WpfApp15
             if (MailBox.EndsWith("@gmail.com") || MailBox.EndsWith("@mail.ru"))
             {
                 store.Customers.Add(new CustomerWithMail { ProductName = NameBox, Mail = MailBox });
-                Customers.Add(new CustomerWithMail { ProductName = NameBox, Mail = MailBox });
+                Customers.Add(new CustomerWithMail { ProductName = NameBox+"mail", Mail = MailBox });
             }
             else
             {
                 store.Customers.Add(new CustomerWithName { ProductName = NameBox, Name = MailBox });
-                Customers.Add(new CustomerWithName { ProductName = NameBox, Name = MailBox });
+                Customers.Add(new CustomerWithName { ProductName = NameBox+"name", Name = MailBox });
             }
         }
     }
