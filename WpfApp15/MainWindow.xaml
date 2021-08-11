@@ -36,7 +36,7 @@
                     <ListBox.ItemTemplate>
                         <DataTemplate>
                             <WrapPanel>
-
+                                <TextBlock Text="Product: "></TextBlock>
                                 <TextBlock Text="{Binding ProductName}"></TextBlock>
                             </WrapPanel>
                         </DataTemplate>
